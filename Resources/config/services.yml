@@ -1,0 +1,6 @@
+services:
+    Codenetix\Oro\Bundle\ProjectBundle\Entity\Repository\ProjectRepository:
+        class: Codenetix\Oro\Bundle\ProjectBundle\Entity\Repository\ProjectRepository
+        parent: oro_entity.abstract_repository
+        arguments:
+            - Codenetix\Oro\Bundle\ProjectBundle\Entity\Project

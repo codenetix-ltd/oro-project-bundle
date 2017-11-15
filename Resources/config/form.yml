@@ -1,0 +1,20 @@
+services:
+    codenetix_oro_project.form.project:
+        class:           Symfony\Component\Form\Form
+        factory: [@form.factory, createNamed]
+        arguments:
+            - codenetix_oro_project_form
+            - Codenetix\Oro\Bundle\ProjectBundle\Form\Type\ProjectType
+
+    Codenetix\Oro\Bundle\ProjectBundle\Form\Type\ProjectType:
+        class: Codenetix\Oro\Bundle\ProjectBundle\Form\Type\ProjectType
+        tags:
+            - { name: form.type, alias: Codenetix\Oro\Bundle\ProjectBundle\Form\Type\ProjectType }
+
+    Codenetix\Oro\Bundle\ProjectBundle\Form\Handler\ProjectHandler:
+        class: Codenetix\Oro\Bundle\ProjectBundle\Form\Handler\ProjectHandler
+        scope: request
+        arguments:
+            - '@codenetix_oro_project.form.project'
+            - '@request'
+            - '@doctrine.orm.entity_manager'

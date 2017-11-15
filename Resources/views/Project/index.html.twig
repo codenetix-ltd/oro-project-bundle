@@ -1,0 +1,13 @@
+{% extends 'OroUIBundle:actions:index.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+{% set gridName = 'codenetix-oro-project-grid' %}
+{% set pageTitle = 'codenetix.oro.project.entity_plural_label'|trans %}
+
+{% block navButtons %}
+    {% if is_granted('codenetix_oro_project_create') %}
+        {{ UI.addButton({
+            'path': path('codenetix_oro_project_create'),
+            'entity_label': 'codenetix.oro.project.entity_label'|trans
+        }) }}
+    {% endif %}
+{% endblock %}

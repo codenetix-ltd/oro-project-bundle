@@ -1,0 +1,93 @@
+datagrids:
+    codenetix-oro-project-grid:
+        acl_resource: true
+        extended_entity_name: Codenetix\Oro\Bundle\ProjectBundle\Entity\Project
+        options:
+            entityHint: projects
+            entity_pagination: true
+            mass_actions:
+                delete:
+                    enabled: false
+        source:
+            type: orm
+            skip_acl_apply: false
+            query:
+                select:
+                    - p.id
+                    - p.name
+                    - p.createdAt
+                    - p.updatedAt
+                    - owner.name as ownerName
+                from:
+                    - { table: Codenetix\Oro\Bundle\ProjectBundle\Entity\Project, alias: p }
+                join:
+                    left:
+                        owner:
+                            join: p.owner
+                            alias: owner
+        columns:
+            name:
+                label: codenetix.oro.project.name.label
+            ownerName:
+                label: codenetix.oro.project.owner.label
+            createdAt:
+                label: oro.ui.created_at
+                frontend_type: datetime
+            updatedAt:
+                label: oro.ui.updated_at
+                frontend_type: datetime
+        properties:
+            id: ~
+            update_link:
+                type: url
+                route: codenetix_oro_project_update
+                params:
+                    - id
+            view_link:
+                type: url
+                route: codenetix_oro_project_view
+                params:
+                    - id
+        actions:
+            view:
+                type:          navigate
+                label:         oro.grid.action.view
+                link:          view_link
+                icon:          eye
+                acl_resource:  codenetix_oro_project_view
+                rowAction:     true
+            update:
+                type:          navigate
+                label:         oro.grid.action.update
+                link:          update_link
+                icon:          pencil-square-o
+                acl_resource:  codenetix_oro_project_update
+        sorters:
+            columns:
+                name:
+                    data_name: p.name
+                ownerName:
+                    data_name: owner.name
+                createdAt:
+                    data_name: p.createdAt
+                updatedAt:
+                    data_name: p.updatedAt
+            default:
+                name: %oro_datagrid.extension.orm_sorter.class%::DIRECTION_ASC
+        filters:
+            columns:
+                name:
+                    type: string
+                    data_name: p.name
+                createdAt:
+                    type: datetime
+                    data_name: p.createdAt
+                updatedAt:
+                    type: datetime
+                    data_name: p.updatedAt
+                businessUnit:
+                    label: codenetix.oro.project.owner.label
+                    type: choice-tree
+                    autocomplete_alias: business_units_tree_search_handler
+                    data_name: dr.owner
+                    className: 'Oro\Bundle\OrganizationBundle\Entity\BusinessUnit'

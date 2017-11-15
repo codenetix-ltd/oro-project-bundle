@@ -1,0 +1,11 @@
+codenetix:
+    oro:
+        project:
+            entity_label: Project
+            entity_plural_label: Projects
+            entity_description: ""
+            id.label: Id
+            brief.label: Brief
+            name.label: Name
+            owner.label: Owner
+            organization.label: Organization

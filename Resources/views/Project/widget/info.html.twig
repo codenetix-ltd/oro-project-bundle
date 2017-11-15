@@ -1,0 +1,16 @@
+{% import 'OroUIBundle::macros.html.twig' as ui %}
+{% import 'OroEmailBundle::macros.html.twig' as email %}
+{% import 'OroEntityConfigBundle::macros.html.twig' as entityConfig %}
+
+<div class="widget-content">
+    <div class="row-fluid form-horizontal">
+        <div class="responsive-block">
+            {{ ui.renderProperty('codenetix.oro.project.name.label'|trans, entity.name) }}
+
+            {{ entityConfig.renderDynamicFields(entity) }}
+        </div>
+        <div class="responsive-block">
+            {{ ui.renderProperty('codenetix.oro.project.brief.label'|trans, entity.brief) }}
+        </div>
+    </div>
+</div>

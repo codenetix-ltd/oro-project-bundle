@@ -1,0 +1,14 @@
+search:
+    Codenetix\Oro\Bundle\ProjectBundle\Entity\Project:
+        alias:                          codenetix_oro_project
+        search_template:                CodenetixOroProjectBundle:Search:result.html.twig
+        title_fields:                   [name]
+        route:
+            name:                       codenetix_oro_project_view
+            parameters:
+                id:                     id
+        fields:
+            -
+                name:                   name
+                target_type:            text
+                target_fields:          [name]

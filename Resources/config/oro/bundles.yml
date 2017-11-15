@@ -1,2 +1,2 @@
 bundles:
-    - { name: Codenetix\Oro\Bundle\ProjectBundle\OroProjectBundle }
+    - { name: Codenetix\Oro\Bundle\ProjectBundle\CodenetixOroProjectBundle }

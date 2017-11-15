@@ -1,0 +1,21 @@
+navigation:
+    menu_config:
+        items:
+            codenetix_oro_project_list:
+                label:    'codenetix.oro.project.entity_plural_label'
+                route:    'codenetix_oro_project_index'
+                extras:
+                    routes: ['codenetix_oro_project_*']
+                    description: 'codenetix.oro.project.entity_description'
+
+        tree:
+            application_menu:
+                children:
+                    catalog_tab:
+                        children:
+                            codenetix_oro_project_list: ~
+    titles:
+        codenetix_oro_project_index:  ~
+        codenetix_oro_project_update: '%project.name% - Edit'
+        codenetix_oro_project_create: 'Create Project'
+        codenetix_oro_project_view: '%project.name%'

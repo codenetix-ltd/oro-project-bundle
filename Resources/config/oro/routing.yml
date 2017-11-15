@@ -1,0 +1,4 @@
+codenetix_oro_project_bundle:
+    resource:     "@CodenetixOroProjectBundle/Controller"
+    type:         annotation
+    prefix:       /codenetix

@@ -1,0 +1,27 @@
+{
+    "name": "codenetix/oro-project-bundle",
+    "type": "symfony-bundle",
+    "description": "Bundle for ORO platform",
+    "homepage": "https://github.com/codenetix-ltd/oro-project-bundle",
+    "keywords": ["Oro", "Project", "Bundle"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Egor Zyuskin",
+            "email": "ezyuskin@codenetix.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "oro/platform": "^2.0"
+    },
+    "autoload": {
+        "psr-4": { "Codenetix\\Oro\\Bundle\\ProjectBundle\\": "" },
+        "exclude-from-classmap": ["/Tests/"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    }
+}
